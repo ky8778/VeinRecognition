@@ -102,3 +102,39 @@ data의 밝기 Histogram(0~255)은 두개의 봉우리가 생기는 Histogram으
 
 - 결과 : Description으로 Matching 진행했을 때 결과가 안좋음.
 
+
+
+
+## V2
+
+### ROI Extraction : Extraction Algorithm (추가)
+
+Maximum inscribed circle 내에서 내접하는 정사각형 ROI 추출
+
+
+
+### ROI Extraction : Image Preprocessing (추가)
+
+**Image Resizing**
+
+Descriptor를 추출하여 비교하는 과정에서 Image의 Size가 동일하게 조정
+
+Bilinear Interpolation 방식을 사용해서 정교하게 Size를 특정 ROI size에 맞추어 resize
+
+- 결과 : 영상 보정 없이 사이즈만 조절해주는 방식으로 개선이 되지 않음.
+
+
+
+### Matching Algorithm (추가)
+
+**SIFT feature Matching**
+
+- Orientation assignment
+- Keypoint descriptor
+
+16x16 block 에서 main direction을 잡고 sub block 에서 feature vector를 얻는 방식.
+
+Multi Level Keypoint Detection 에서 검출된 점들을 SIFT 한 뒤 BruteForce Matching.
+
+- 결과 : Description으로 Matching 진행했을 때 결과가 안좋음.
+
